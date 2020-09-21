@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import {HttpClientModule} from '@angular/common/http'; // fazer requisiÃ§Ãµes http em uma API
+import {HttpClientModule} from '@angular/common/http'; // fazer requisição http em uma API
 import { UsuarioComponent } from './usuario/usuario.component';
 
 

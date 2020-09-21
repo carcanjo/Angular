@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
 
-  usuarios: any;
+  usuarios: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -19,12 +19,12 @@ export class UsuarioComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getUsuarios(){
-    // aqui faÃ§o requisiÃ§Ãµes http na API
+    // aqui faço requisições http na API
     this.usuarios = this.http.get('http://localhost:52246/api/users').subscribe(
       // tslint:disable-next-line: semicolon
       response => {this.usuarios = response
         // tslint:disable-next-line: align
-        console.log(response);
+        console.log(this.usuarios);
       },
       Error => {
         console.log(Error);

@@ -1,1 +1,41 @@
-<p>usuario works!</p>
+<form class="form-inline container">
+    <div class="form-group mb-2">
+        <input type="text" class="form-control mr-2" placeholder="buscar">
+        <button class="btn btn-outline-success">buscar</button>
+    </div>
+</form>
+<table class="table table-striped container border">
+    <thead class="thead-dark">
+        <tr >
+            <th>#</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Escolaridade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="usuarios && usuarios.length">
+        <tr *ngFor="let users of usuarios; index as i"> 
+            <td>{{usuarios[i].id}}</td>
+            <td>{{usuarios[i].name}}</td>
+            <td>{{usuarios[i].surname}}</td>
+            <td>{{usuarios[i].email}}</td>
+            <td>{{usuarios[i].education.educations}}</td>
+            <td>
+                <a class="btn btn-outline-warning"><i class="far fa-address-card"></i> Editar </a> |
+                <a class="btn btn-outline-danger"><i class="fab fa-battle-net"></i> Excluir </a>
+            </td>        
+        </tr>
+    </tbody>
+    <tfoot *ngIf="!usuarios.length">
+        <tr>
+            <td>Nenhum Usuario encontrado!</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
