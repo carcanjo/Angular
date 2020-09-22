@@ -1,6 +1,6 @@
 <form class="form-inline container">
     <div class="form-group mb-2">
-        <button class="btn btn-outline-success"><i class="fab fa-battle-net"></i> Novo Usuário</button>
+        <a routerLink="getUsuarios()" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
     </div>
 </form>
 <table class="table table-striped container border">
@@ -22,19 +22,14 @@
             <td>{{usuarios[i].email}}</td>
             <td>{{usuarios[i].education.educations}}</td>
             <td>
-                <a class="btn btn-outline-warning"><i class="far fa-address-card"></i> Editar </a> |
-                <a class="btn btn-outline-danger"><i class="fab fa-battle-net"></i> Excluir </a>
+                <a routerLink="editar" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </a> |
+                <a routerLink="excluir"  class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </a>
             </td>        
         </tr>
     </tbody>
     <tfoot *ngIf="!usuarios.length">
         <tr>
-            <td>Nenhum Usuario encontrado!</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td colspan="7">Nenhum Usuario encontrado!</td>
         </tr>
     </tfoot>
 </table>
