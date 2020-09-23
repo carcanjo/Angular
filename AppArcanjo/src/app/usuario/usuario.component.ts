@@ -9,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class UsuarioComponent implements OnInit {
 
   usuarios: any = [];
-
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // evento vai ser executado antes do html ficar pronto
+    // evento vai ser executado antes do html ficar pronto ca
     this.getUsuarios();
   }
 
@@ -34,7 +33,7 @@ export class UsuarioComponent implements OnInit {
   // delete o usuario da minha API
   // tslint:disable-next-line: no-trailing-whitespace
   // tslint:disable-next-line: typedef 
-  deleteUsuario(id){
+  deletarUsuario(id){
     // tslint:disable-next-line: quotemark
     this.usuarios = this.http.delete("http://localhost:52246/api/Users/" + id ).subscribe(
       response => {this.usuarios = response ,
@@ -45,5 +44,29 @@ export class UsuarioComponent implements OnInit {
       },
       // tslint:disable-next-line: semicolon
     )
+  }
+
+  // tslint:disable-next-line: typedef
+  getUsuario(id){
+    this.usuarios =  this.http.get('http://localhost:52246/api/Users/' + id).subscribe(
+      response => { this.usuarios = response,
+        console.log(id, this.usuarios);
+      },
+      Error => {
+        console.log(Error);
+      },
+    );
+  }
+
+  // tslint:disable-next-line: typedef
+  alterarUsuario(id, usuarios){
+    this.usuarios =  this.http.put('http://localhost:52246/api/Users/' + id, this.usuarios).subscribe(
+      response => {this.usuarios = response ,
+        this.getUsuarios();
+      },
+      Error => {
+        console.log(Error);
+      },
+    );
   }
 }

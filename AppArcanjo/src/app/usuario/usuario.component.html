@@ -1,11 +1,11 @@
 <form class="form-inline container">
     <div class="form-group mb-2">
-        <a routerLink="getUsuarios()" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
+        <a routerLink="users" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
     </div>
 </form>
 
 <div class="containar">
-    <table class="table table-striped container border">
+    <table class="table table-striped container border hover">
         <thead class="thead-dark">
             <tr >
                 <th>#</th>
@@ -24,8 +24,8 @@
                 <td>{{usuarios[i].email}}</td>
                 <td>{{usuarios[i].education.educations}}</td>
                 <td>
-                    <a routerLink="editar" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </a> |
-                    <button (click)="deleteUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
+                    <button (click)="getUsuario(usuarios[i].id)" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
+                    <button (click)="deletarUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
                 </td>        
             </tr>
         </tbody>
