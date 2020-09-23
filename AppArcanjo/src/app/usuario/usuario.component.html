@@ -3,33 +3,36 @@
         <a routerLink="getUsuarios()" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
     </div>
 </form>
-<table class="table table-striped container border">
-    <thead class="thead-dark">
-        <tr >
-            <th>#</th>
-            <th>Nome</th>
-            <th>Sobrenome</th>
-            <th>Email</th>
-            <th>Escolaridade</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="usuarios && usuarios.length">
-        <tr *ngFor="let users of usuarios; index as i"> 
-            <td>{{usuarios[i].id}}</td>
-            <td>{{usuarios[i].name}}</td>
-            <td>{{usuarios[i].surname}}</td>
-            <td>{{usuarios[i].email}}</td>
-            <td>{{usuarios[i].education.educations}}</td>
-            <td>
-                <a routerLink="editar" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </a> |
-                <a routerLink="excluir"  class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </a>
-            </td>        
-        </tr>
-    </tbody>
-    <tfoot *ngIf="!usuarios.length">
-        <tr>
-            <td colspan="7">Nenhum Usuario encontrado!</td>
-        </tr>
-    </tfoot>
-</table>
+
+<div class="containar">
+    <table class="table table-striped container border">
+        <thead class="thead-dark">
+            <tr >
+                <th>#</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Email</th>
+                <th>Escolaridade</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="usuarios && usuarios.length">
+            <tr *ngFor="let users of usuarios; index as i"> 
+                <td>{{usuarios[i].id}}</td>
+                <td>{{usuarios[i].name}}</td>
+                <td>{{usuarios[i].surname}}</td>
+                <td>{{usuarios[i].email}}</td>
+                <td>{{usuarios[i].education.educations}}</td>
+                <td>
+                    <a routerLink="editar" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </a> |
+                    <button (click)="deleteUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
+                </td>        
+            </tr>
+        </tbody>
+        <tfoot *ngIf="!usuarios.length" >
+            <tr>
+                <td colspan="6">Nenhum Usuario encontrado!</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

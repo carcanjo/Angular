@@ -23,8 +23,6 @@ export class UsuarioComponent implements OnInit {
     this.usuarios = this.http.get('http://localhost:52246/api/users').subscribe(
       // tslint:disable-next-line: semicolon
       response => {this.usuarios = response
-        // tslint:disable-next-line: align
-        console.log(this.usuarios);
       },
       Error => {
         console.log(Error);
@@ -33,4 +31,19 @@ export class UsuarioComponent implements OnInit {
     )
   }
 
+  // delete o usuario da minha API
+  // tslint:disable-next-line: no-trailing-whitespace
+  // tslint:disable-next-line: typedef 
+  deleteUsuario(id){
+    // tslint:disable-next-line: quotemark
+    this.usuarios = this.http.delete("http://localhost:52246/api/Users/" + id ).subscribe(
+      response => {this.usuarios = response ,
+        this.getUsuarios();
+      },
+      Error => {
+        console.log(Error);
+      },
+      // tslint:disable-next-line: semicolon
+    )
+  }
 }
