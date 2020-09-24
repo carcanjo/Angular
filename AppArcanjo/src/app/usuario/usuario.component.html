@@ -24,8 +24,8 @@
                 <td>{{usuarios[i].email}}</td>
                 <td>{{usuarios[i].education.educations}}</td>
                 <td>
-                    <button (click)="getUsuario(usuarios[i].id)" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
-                    <button (click)="deletarUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
+                    <button class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
+                    <button (click)="deleteUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
                 </td>        
             </tr>
         </tbody>
