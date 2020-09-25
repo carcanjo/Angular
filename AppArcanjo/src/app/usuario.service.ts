@@ -17,5 +17,15 @@ export class UsuarioService {
   deleteUsuario(id){
     return this.http.delete('http://localhost:52246/api/Users/' + id);
   }
+
+   // tslint:disable-next-line: typedef
+  listUsuariosPorId(id){
+    return this.http.get('http://localhost:52246/api/Users/' + id);
+  }
+// tslint:disable-next-line: eofline
+
+  listEscolaridade(): Observable<any>{
+    return this.http.get('http://localhost:52246/api/Educations/');
+  }
 // tslint:disable-next-line: eofline
 }

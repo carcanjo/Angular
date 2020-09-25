@@ -1,6 +1,6 @@
 <form class="form-inline container">
     <div class="form-group mb-2">
-        <a routerLink="users" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
+        <a routerLink="insert" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
     </div>
 </form>
 
@@ -24,7 +24,7 @@
                 <td>{{usuarios[i].email}}</td>
                 <td>{{usuarios[i].education.educations}}</td>
                 <td>
-                    <button class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
+                    <button (click)="getUsuario(usuarios[i].id)" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
                     <button (click)="deleteUsuario(usuarios[i].id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
                 </td>        
             </tr>

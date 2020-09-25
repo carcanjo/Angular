@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import {HttpClientModule} from '@angular/common/http'; // fazer requisição http em uma API
+import {HttpClientModule} from '@angular/common/http'; // fazer requisiï¿½ï¿½o http em uma API
 import { UsuarioComponent } from './usuario/usuario.component';
-import { UsuarioService } from './usuario/usuario.service';
-
+import { UsuarioService } from './usuario.service';
+import { UsuarioCadastroComponent } from './usuario-cadastro/usuario-cadastro.component';
 
 @NgModule({
-  declarations: [
+  // tslint:disable-next-line: no-trailing-whitespace
+  declarations: [	
     AppComponent,
       NavComponent,
       UsuarioComponent,
+      UsuarioCadastroComponent
    ],
   imports: [
     BrowserModule,

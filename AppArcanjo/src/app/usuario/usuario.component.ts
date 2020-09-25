@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from './usuario.service';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -26,11 +26,22 @@ export class UsuarioComponent implements OnInit {
       });
   }
 
-  // tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typedef //
   deleteUsuario(id){
     this.usuarioService.deleteUsuario(id).subscribe(usuarios => {
       this.usuarios = usuarios;
       this.listUsuarios();
+    }, Error => {
+      console.log('Erro ao listar os usuarios', Error);
+    });
+  }
+
+  // tslint:disable-next-line: typedef
+  getUsuario(id){
+    this.usuarioService.listUsuariosPorId(id).subscribe(usuarios => {
+      this.usuarios = usuarios;
+      // tslint:disable-next-line: no-trailing-whitespace
+      console.log(usuarios); 
     }, Error => {
       console.log('Erro ao listar os usuarios', Error);
     });
