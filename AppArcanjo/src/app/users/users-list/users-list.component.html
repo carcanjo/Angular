@@ -1,0 +1,38 @@
+<form class="form-inline container">
+  <div class="form-group mb-2">
+      <a routerLink="new" class="btn btn-outline-success"><i class="fas fa-address-book"></i> Novo Usuário </a>
+  </div>
+</form>
+
+<div class="containar">
+  <table class="table table-striped container border hover">
+      <thead class="thead-dark">
+          <tr >
+              <th>#</th>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Email</th>
+              <th>Escolaridade</th>
+              <th>Ações</th>
+          </tr>
+      </thead>
+      <tbody *ngIf="users && users.length">
+          <tr *ngFor="let users of users; index as i"> 
+              <td>{{users.id}}</td>
+              <td>{{users.name}}</td>
+              <td>{{users.surname}}</td>
+              <td>{{users.email}}</td>
+              <td>{{users.education.educations}}</td>
+              <td>
+                  <button (click)="getUsers(users.id)" class="btn btn-outline-warning"><i class="far fa-edit"></i> Editar </button> |
+                  <button (click)="deleteUsers(users.id)" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i> Excluir </button>
+              </td>        
+          </tr>
+      </tbody>
+      <tfoot *ngIf="!users.length" >
+          <tr>
+              <td colspan="6">Nenhum Usuario encontrado!</td>
+          </tr>
+      </tfoot>
+  </table>
+</div>
