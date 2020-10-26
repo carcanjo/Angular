@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import { User } from 'src/app/shared/users-model';
+import { UsersService } from '../../shared/users.service';
+import toastr from 'toastr';
 
 @Component({
   selector: 'app-users-form',
@@ -8,14 +10,13 @@ import { UsersService } from '../users.service';
 })
 export class UsersFormComponent implements OnInit {
   education: any = [];
+  users: User = new User();
   constructor(private userService: UsersService) { }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getEducation();
   }
 
-  // tslint:disable-next-line: typedef
   getEducation(){
     this.userService.getEducation()
     .subscribe(education => {
@@ -23,5 +24,19 @@ export class UsersFormComponent implements OnInit {
     }, Error => {
       console.log('Erro ao listar escolaridade', Error);
     });
+  }
+
+   getUsersId(Id){
+    this.userService.getUsersById(Id)
+    .subscribe(users => {
+      this.users = users;
+    },
+    error => {
+      console.log('Erro ao listar o usuario', error);
+    });
+  }
+
+  private createUser(){
+
   }
 }

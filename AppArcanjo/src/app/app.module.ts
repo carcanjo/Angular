@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import {HttpClientModule} from '@angular/common/http'; // fazer requisi��o http em uma API
-import { UsersService } from './users/users.service';
+import { UsersService } from './shared/users.service';
 import { UsersFormComponent } from './users/users-form/users-form.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
 

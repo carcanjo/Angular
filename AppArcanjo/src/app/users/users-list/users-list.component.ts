@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../shared/users.service';
+import toastr from 'toastr';
 
 @Component({
   selector: 'app-users-list',
@@ -10,12 +11,10 @@ export class UsersListComponent implements OnInit {
   users: any = [];
   constructor(private usersService: UsersService ){ }
 
-  // tslint:disable-next-line: typedef
   ngOnInit() {
     this.getUsers();
   }
 
-  // tslint:disable-next-line: typedef
   getUsers() {
     this.usersService.getUsers()
     .subscribe(users => {  this.users = users;
@@ -24,13 +23,16 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-  // tslint:disable-next-line: typedef
   deleteUsers(Id){
-    this.usersService.deleteUsers(Id)
-    .subscribe(users => {
-      this.users = users;
-    }, Error => {
-      console.log(1, Error);
-    });
-  }
+    const mustDelete = confirm('Deseja excluir esse usuario?')
+    if(mustDelete){
+      toastr.success('Usuario excluido', 'Sucesso');
+      this.usersService.deleteUsers(Id)
+      .subscribe(users => {
+        this.users = users;
+      }, Error => {
+        toastr.error('Erro ao excluir o usuario', 'Erro');
+      });
+    }
+ }
 }

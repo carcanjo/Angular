@@ -1,4 +1,4 @@
-<form class="container">
+<form class="container" >
   <div class="form-group">
       <label for="name">Nome</label>
       <input type="name" class="form-control" id="name">
@@ -19,5 +19,7 @@
       <option *ngFor="let edu of education; index as i">{{education[i].educations}}</option>
     </select>
   </div>
-  <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Salvar</button>
+  <button type="submit" class="btn btn-outline-success mr-2"><i class="fas fa-save"></i> Salvar</button>
+  <a routerLink="users" class="btn btn-outline-info"><i class="fas fa-save"></i> Voltar</a>
+  
 </form>
